@@ -43,7 +43,7 @@ An `Instant` represents a fixed point in time (called "exact time"), without reg
 
 Maps to a [`Temporal.Instant`](https://tc39.es/proposal-temporal/docs/instant.html) in your resolvers.
 
-Example serialized string: `2020-01-01T00:00:00Z`
+Example serialized string: `2020-01-01T12:30:00Z`
 
 ### ZonedDateTime
 
@@ -51,7 +51,7 @@ A `ZonedDateTime` is a timezone-aware, calendar-aware date/time object that repr
 
 Maps to a [`Temporal.ZonedDateTime`](https://tc39.es/proposal-temporal/docs/zoneddatetime.html) in your resolvers.
 
-Example serialized string: `2020-01-01T00:00:00+10:00[Australia/Brisbane]`
+Example serialized string: `2020-01-01T12:30:00+10:00[Australia/Brisbane]`
 
 ### PlainDate
 
@@ -68,3 +68,19 @@ A `PlainTime` represents a wall-clock time, with a precision in nanoseconds, and
 Maps to a [`Temporal.PlainTime`](https://tc39.es/proposal-temporal/docs/plaintime.html) in your resolvers.
 
 Example serialized string: `12:30:00`
+
+### PlainDateTime
+
+A `PlainDateTime` represents a calendar date and wall-clock time that does not carry time zone information.
+
+Maps to a [`Temporal.PlainDateTime`](https://tc39.es/proposal-temporal/docs/plaindatetime.html) in your resolvers.
+
+Example serialized string: `2020-01-01T12:30:00`
+
+### Duration
+
+A `Duration` expresses a length of time.
+
+Maps to a [`Temporal.Duration`](https://tc39.es/proposal-temporal/docs/duration.html) in your resolvers.
+
+Example serialized string: `2020-01-01T12:30:00`

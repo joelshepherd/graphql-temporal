@@ -3,11 +3,76 @@ import "./polyfill.js";
 import { expect } from "chai";
 import { Kind } from "graphql";
 import {
+  GraphQLDuration,
   GraphQLInstant,
   GraphQLPlainDate,
+  GraphQLPlainDateTime,
   GraphQLPlainTime,
   GraphQLZonedDateTime,
 } from "./mod.js";
+
+describe("GraphQLDuration", function () {
+  it("should have the correct name", function () {
+    expect(GraphQLDuration.name).equals("Duration");
+  });
+
+  describe(".serialize()", function () {
+    it("should serialize Temporal.Duration values", function () {
+      expect(GraphQLDuration.serialize(new Temporal.Duration(0, 2))).equals(
+        "P2M"
+      );
+    });
+    it("should not serialize non-Temporal.Duration values", function () {
+      expect(() => GraphQLDuration.serialize(null)).throws();
+      expect(() => GraphQLDuration.serialize(1)).throws();
+      expect(() =>
+        GraphQLDuration.serialize(new Date(2020, 1, 1, 0, 0, 0, 0))
+      ).throws();
+    });
+  });
+
+  describe(".parseLiteral()", function () {
+    it("should parse string literals", function () {
+      const parsed = GraphQLDuration.parseLiteral(
+        { kind: Kind.STRING, value: "P2M" },
+        null
+      );
+      expect(parsed).instanceOf(Temporal.Duration);
+      expect(parsed.months).equals(2);
+    });
+    it("should not parse invalid string literals", function () {
+      expect(() =>
+        GraphQLDuration.parseLiteral({ kind: Kind.STRING, value: "2M" }, null)
+      ).throws();
+    });
+    it("should not parse non-string literals", function () {
+      expect(() =>
+        GraphQLDuration.parseLiteral({ kind: Kind.NULL }, null)
+      ).throws();
+      expect(() =>
+        GraphQLDuration.parseLiteral({ kind: Kind.INT, value: "1" }, null)
+      ).throws();
+    });
+  });
+
+  describe(".parseValue()", function () {
+    it("should parse string values", function () {
+      const parsed = GraphQLDuration.parseValue("P2M");
+      expect(parsed).instanceOf(Temporal.Duration);
+      expect(parsed.months).equals(2);
+    });
+    it("should not parse invalid string values", function () {
+      expect(() => GraphQLDuration.parseValue("2M")).throws();
+    });
+    it("should not parse non-string values", function () {
+      expect(() => GraphQLDuration.parseValue(null)).throws();
+      expect(() => GraphQLDuration.parseValue(1)).throws();
+      expect(() =>
+        GraphQLDuration.parseValue(new Date(2020, 1, 1, 0, 0, 0, 0))
+      ).throws();
+    });
+  });
+});
 
 describe("GraphQLInstant", function () {
   it("should have the correct name", function () {
@@ -202,6 +267,84 @@ describe("GraphQLPlainTime", function () {
       expect(() => GraphQLPlainTime.parseValue(1)).throws();
       expect(() =>
         GraphQLPlainTime.parseValue(new Date(2020, 1, 1, 0, 0, 0, 0))
+      ).throws();
+    });
+  });
+});
+
+describe("GraphQLPlainDateTime", function () {
+  it("should have the correct name", function () {
+    expect(GraphQLPlainDateTime.name).equals("PlainDateTime");
+  });
+
+  describe(".serialize()", function () {
+    it("should serialize Temporal.PlainDateTime values", function () {
+      expect(
+        GraphQLPlainDateTime.serialize(
+          new Temporal.PlainDateTime(2020, 1, 1, 12, 30, 0)
+        )
+      ).equals("2020-01-01T12:30:00");
+    });
+    it("should not serialize non-Temporal.PlainDateTime values", function () {
+      expect(() => GraphQLPlainDateTime.serialize(null)).throws();
+      expect(() => GraphQLPlainDateTime.serialize(1)).throws();
+      expect(() =>
+        GraphQLPlainDateTime.serialize(new Date(2020, 1, 1, 12, 30, 0))
+      ).throws();
+    });
+  });
+
+  describe(".parseLiteral()", function () {
+    it("should parse string literals", function () {
+      const parsed = GraphQLPlainDateTime.parseLiteral(
+        { kind: Kind.STRING, value: "2020-01-02T12:30:00" },
+        null
+      );
+      expect(parsed).instanceOf(Temporal.PlainDateTime);
+      expect(parsed.year).equals(2020);
+      expect(parsed.month).equals(1);
+      expect(parsed.day).equals(2);
+      expect(parsed.hour).equals(12);
+      expect(parsed.minute).equals(30);
+      expect(parsed.second).equals(0);
+    });
+    it("should not parse invalid string literals", function () {
+      expect(() =>
+        GraphQLPlainDateTime.parseLiteral(
+          { kind: Kind.STRING, value: "string" },
+          null
+        )
+      ).throws();
+    });
+    it("should not parse non-string literals", function () {
+      expect(() =>
+        GraphQLPlainDateTime.parseLiteral({ kind: Kind.NULL }, null)
+      ).throws();
+      expect(() =>
+        GraphQLPlainDateTime.parseLiteral({ kind: Kind.INT, value: "1" }, null)
+      ).throws();
+    });
+  });
+
+  describe(".parseValue()", function () {
+    it("should parse string values", function () {
+      const parsed = GraphQLPlainDateTime.parseValue("2020-01-02T12:30:00");
+      expect(parsed).instanceOf(Temporal.PlainDateTime);
+      expect(parsed.year).equals(2020);
+      expect(parsed.month).equals(1);
+      expect(parsed.day).equals(2);
+      expect(parsed.hour).equals(12);
+      expect(parsed.minute).equals(30);
+      expect(parsed.second).equals(0);
+    });
+    it("should not parse invalid string values", function () {
+      expect(() => GraphQLPlainDateTime.parseValue("string")).throws();
+    });
+    it("should not parse non-string values", function () {
+      expect(() => GraphQLPlainDateTime.parseValue(null)).throws();
+      expect(() => GraphQLPlainDateTime.parseValue(1)).throws();
+      expect(() =>
+        GraphQLPlainDateTime.parseValue(new Date(2020, 1, 1, 0, 0, 0, 0))
       ).throws();
     });
   });

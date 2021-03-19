@@ -8,9 +8,11 @@ if (!Temporal) {
 }
 
 type TemporalClass =
+  | typeof Temporal.Duration
   | typeof Temporal.Instant
   | typeof Temporal.PlainDate
   | typeof Temporal.PlainTime
+  | typeof Temporal.PlainDateTime
   | typeof Temporal.ZonedDateTime;
 
 function createScalar(Class: TemporalClass): GraphQLScalarType {
@@ -46,7 +48,9 @@ function createScalar(Class: TemporalClass): GraphQLScalarType {
   });
 }
 
+export const GraphQLDuration = createScalar(Temporal.Duration);
 export const GraphQLInstant = createScalar(Temporal.Instant);
 export const GraphQLPlainDate = createScalar(Temporal.PlainDate);
 export const GraphQLPlainTime = createScalar(Temporal.PlainTime);
+export const GraphQLPlainDateTime = createScalar(Temporal.PlainDateTime);
 export const GraphQLZonedDateTime = createScalar(Temporal.ZonedDateTime);
