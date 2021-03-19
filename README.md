@@ -79,8 +79,8 @@ Example serialized string: `2020-01-01T12:30:00`
 
 ### Duration
 
-A `Duration` expresses a length of time.
+A `Duration` represents a duration of time which can be used in date/time arithmetic.
 
 Maps to a [`Temporal.Duration`](https://tc39.es/proposal-temporal/docs/duration.html) in your resolvers.
 
-Example serialized string: `2020-01-01T12:30:00`
+Example serialized string: `P2M`
