@@ -4,7 +4,7 @@ Provides GraphQL scalars for JavaScript's new Temporal specification.
 
 ## Install
 
-You will need a Temporal-compatible JavaScript environment (none of which exist yet), or a polyfill.
+You will need a Temporal-compatible JavaScript environment (none of which exist yet) or a polyfill to use this package.
 
 The Temporal proposal's [experimental polyfill](https://www.npmjs.com/package/proposal-temporal) is currently the most complete implementation. See the [test's polyfill](src/polyfill.ts) for an installation example.
 
