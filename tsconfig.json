@@ -1,5 +1,6 @@
 {
   "compilerOptions": {
+    "declaration": true,
     "incremental": true,
     "lib": ["es2020"],
     "module": "commonjs",

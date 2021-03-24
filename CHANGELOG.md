@@ -1,5 +1,9 @@
 # Changelog
 
+## [0.2.1] - 2020-03-24
+
+- Adding TypeScript declarations
+
 ## [0.2.0] - 2020-03-19
 
 - Added `Duration` and `PlainDateTime` scalars
