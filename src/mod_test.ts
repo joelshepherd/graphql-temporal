@@ -16,6 +16,10 @@ describe("GraphQLDuration", function () {
     expect(GraphQLDuration.name).equals("Duration");
   });
 
+  it("should have the correct description", function () {
+    expect(GraphQLDuration.description).contains("`Duration`")
+  });
+
   describe(".serialize()", function () {
     it("should serialize Temporal.Duration values", function () {
       expect(GraphQLDuration.serialize(new Temporal.Duration(0, 2))).equals(
@@ -77,6 +81,10 @@ describe("GraphQLDuration", function () {
 describe("GraphQLInstant", function () {
   it("should have the correct name", function () {
     expect(GraphQLInstant.name).equals("Instant");
+  });
+
+  it("should have the correct description", function () {
+    expect(GraphQLInstant.description).contains("`Instant`")
   });
 
   describe(".serialize()", function () {
@@ -145,6 +153,10 @@ describe("GraphQLPlainDate", function () {
     expect(GraphQLPlainDate.name).equals("PlainDate");
   });
 
+  it("should have the correct description", function () {
+    expect(GraphQLPlainDate.description).contains("`PlainDate`")
+  });
+
   describe(".serialize()", function () {
     it("should serialize Temporal.PlainDate values", function () {
       expect(
@@ -211,6 +223,10 @@ describe("GraphQLPlainTime", function () {
     expect(GraphQLPlainTime.name).equals("PlainTime");
   });
 
+  it("should have the correct description", function () {
+    expect(GraphQLPlainTime.description).contains("`PlainTime`")
+  });
+
   describe(".serialize()", function () {
     it("should serialize Temporal.PlainTime values", function () {
       expect(
@@ -275,6 +291,10 @@ describe("GraphQLPlainTime", function () {
 describe("GraphQLPlainDateTime", function () {
   it("should have the correct name", function () {
     expect(GraphQLPlainDateTime.name).equals("PlainDateTime");
+  });
+
+  it("should have the correct description", function () {
+    expect(GraphQLPlainDateTime.description).contains("`PlainDateTime`")
   });
 
   describe(".serialize()", function () {
@@ -353,6 +373,10 @@ describe("GraphQLPlainDateTime", function () {
 describe("GraphQLZonedDateTime", function () {
   it("should have the correct name", function () {
     expect(GraphQLZonedDateTime.name).equals("ZonedDateTime");
+  });
+
+  it("should have the correct description", function () {
+    expect(GraphQLZonedDateTime.description).contains("`ZonedDateTime`")
   });
 
   describe(".serialize()", function () {

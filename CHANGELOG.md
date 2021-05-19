@@ -1,8 +1,12 @@
 # Changelog
 
+## [0.2.2] - 2020-05-19
+
+- Added descriptions to GraphQL types
+
 ## [0.2.1] - 2020-03-24
 
-- Adding TypeScript declarations
+- Added TypeScript declarations
 
 ## [0.2.0] - 2020-03-19
 
