@@ -1,4 +1,4 @@
-import * as polyfill from "proposal-temporal";
+import * as polyfill from "@js-temporal/polyfill";
 
 declare global {
   namespace Temporal {

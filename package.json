@@ -9,13 +9,13 @@
     "dist/mod.d.ts"
   ],
   "devDependencies": {
+    "@js-temporal/polyfill": "^0.1.0",
     "@types/chai": "^4.2.15",
     "@types/mocha": "^8.2.1",
     "chai": "^4.3.4",
     "graphql": "^15.5.0",
     "mocha": "^8.3.2",
     "prettier": "2.2.1",
-    "proposal-temporal": "^0.8.0",
     "typescript": "^4.2.3"
   },
   "peerDependencies": {
