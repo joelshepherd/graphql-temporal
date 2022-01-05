@@ -17,7 +17,7 @@ describe("GraphQLDuration", function () {
   });
 
   it("should have the correct description", function () {
-    expect(GraphQLDuration.description).contains("`Duration`")
+    expect(GraphQLDuration.description).contains("`Duration`");
   });
 
   describe(".serialize()", function () {
@@ -84,7 +84,7 @@ describe("GraphQLInstant", function () {
   });
 
   it("should have the correct description", function () {
-    expect(GraphQLInstant.description).contains("`Instant`")
+    expect(GraphQLInstant.description).contains("`Instant`");
   });
 
   describe(".serialize()", function () {
@@ -154,7 +154,7 @@ describe("GraphQLPlainDate", function () {
   });
 
   it("should have the correct description", function () {
-    expect(GraphQLPlainDate.description).contains("`PlainDate`")
+    expect(GraphQLPlainDate.description).contains("`PlainDate`");
   });
 
   describe(".serialize()", function () {
@@ -224,7 +224,7 @@ describe("GraphQLPlainTime", function () {
   });
 
   it("should have the correct description", function () {
-    expect(GraphQLPlainTime.description).contains("`PlainTime`")
+    expect(GraphQLPlainTime.description).contains("`PlainTime`");
   });
 
   describe(".serialize()", function () {
@@ -294,7 +294,7 @@ describe("GraphQLPlainDateTime", function () {
   });
 
   it("should have the correct description", function () {
-    expect(GraphQLPlainDateTime.description).contains("`PlainDateTime`")
+    expect(GraphQLPlainDateTime.description).contains("`PlainDateTime`");
   });
 
   describe(".serialize()", function () {
@@ -376,7 +376,7 @@ describe("GraphQLZonedDateTime", function () {
   });
 
   it("should have the correct description", function () {
-    expect(GraphQLZonedDateTime.description).contains("`ZonedDateTime`")
+    expect(GraphQLZonedDateTime.description).contains("`ZonedDateTime`");
   });
 
   describe(".serialize()", function () {
