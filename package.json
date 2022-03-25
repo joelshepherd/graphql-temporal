@@ -1,6 +1,6 @@
 {
   "name": "graphql-temporal",
-  "version": "0.2.2",
+  "version": "1.0.0",
   "description": "Provides GraphQL scalars for JavaScript's new Temporal specification.",
   "main": "dist/mod.js",
   "types": "dist/mod.d.ts",
@@ -9,7 +9,7 @@
     "dist/mod.d.ts"
   ],
   "devDependencies": {
-    "@js-temporal/polyfill": "^0.3.0",
+    "@js-temporal/polyfill": "^0.4.0",
     "@types/chai": "^4.3.0",
     "@types/mocha": "^9.0.0",
     "chai": "^4.3.4",
