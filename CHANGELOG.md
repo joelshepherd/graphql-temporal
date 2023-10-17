@@ -1,5 +1,9 @@
 # Changelog
 
+## [1.0.0] - 2022-03-25
+
+- Stable version dump
+
 ## [0.2.2] - 2020-05-19
 
 - Added descriptions to GraphQL types
